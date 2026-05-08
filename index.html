@@ -3,780 +3,699 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>区块链 & 金融科技每日简报 — 2026.04.17</title>
+<title>每日金融科技简报 | 2026年5月8日</title>
 <style>
-  :root {
-    --bg-primary: #0d1117;
-    --bg-card: #161b22;
-    --bg-card-hover: #1c2333;
-    --bg-highlight: #1a2332;
-    --border: #30363d;
-    --text-primary: #e6edf3;
-    --text-secondary: #8b949e;
-    --text-muted: #656d76;
-    --accent-blue: #58a6ff;
-    --accent-green: #3fb950;
-    --accent-red: #f85149;
-    --accent-orange: #d29922;
-    --accent-purple: #bc8cff;
-    --accent-cyan: #39d2c0;
-    --tag-regulation: #1f3a5f;
-    --tag-regulation-text: #79c0ff;
-    --tag-institution: #2a1f3d;
-    --tag-institution-text: #d2a8ff;
-    --tag-defi: #1a2f1a;
-    --tag-defi-text: #7ee787;
-    --tag-security: #3d1f1f;
-    --tag-security-text: #ffa198;
-    --tag-market: #2d2a1a;
-    --tag-market-text: #e3b341;
-    --tag-ai: #1a2d3d;
-    --tag-ai-text: #79c0ff;
-    --tag-rwa: #1f2d2a;
-    --tag-rwa-text: #56d4c8;
-  }
-
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
   body {
-    background: var(--bg-primary);
-    color: var(--text-primary);
-    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
-    line-height: 1.7;
-    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, sans-serif;
+    background: #0d1117;
+    color: #e6edf3;
+    line-height: 1.6;
     min-height: 100vh;
+    padding: 16px;
   }
 
-  .container {
-    max-width: 780px;
-    margin: 0 auto;
-    padding: 32px 20px 60px;
-  }
-
-  /* ── Header ── */
+  /* Header */
   .header {
     text-align: center;
-    padding: 40px 0 32px;
-    border-bottom: 1px solid var(--border);
-    margin-bottom: 32px;
+    padding: 24px 0 20px;
+    border-bottom: 1px solid #21262d;
+    margin-bottom: 20px;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
   }
-
-  .header-label {
-    display: inline-block;
-    font-size: 11px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--accent-blue);
-    background: rgba(88, 166, 255, 0.1);
-    padding: 4px 16px;
-    border-radius: 20px;
-    margin-bottom: 16px;
-    font-weight: 600;
-  }
-
   .header h1 {
-    font-size: 28px;
+    font-size: 1.5rem;
     font-weight: 700;
-    letter-spacing: -0.5px;
-    margin-bottom: 8px;
-    background: linear-gradient(135deg, #e6edf3, #8b949e);
+    background: linear-gradient(135deg, #58a6ff, #a371f7);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-  }
-
-  .header .date {
-    font-size: 14px;
-    color: var(--text-secondary);
-  }
-
-  /* ── Market Snapshot ── */
-  .market-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 12px;
-    margin-bottom: 36px;
-  }
-
-  .market-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 16px 14px;
-    text-align: center;
-    transition: border-color 0.2s;
-  }
-
-  .market-card:hover {
-    border-color: var(--accent-blue);
-  }
-
-  .market-card .symbol {
-    font-size: 11px;
-    font-weight: 600;
-    color: var(--text-secondary);
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    margin-bottom: 6px;
-  }
-
-  .market-card .price {
-    font-size: 20px;
-    font-weight: 700;
-    color: var(--text-primary);
     margin-bottom: 4px;
   }
+  .header .date { color: #8b949e; font-size: 0.85rem; }
 
-  .market-card .change {
-    font-size: 12px;
-    font-weight: 500;
+  /* Main Layout */
+  .main-layout {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    gap: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  @media (max-width: 900px) {
+    .main-layout {
+      grid-template-columns: 1fr;
+    }
   }
 
-  .market-card .change.up { color: var(--accent-red); }
-  .market-card .change.down { color: var(--accent-green); }
-  .market-card .change.neutral { color: var(--text-secondary); }
-
-  .market-card .note {
-    font-size: 11px;
-    color: var(--text-muted);
-    margin-top: 4px;
-    line-height: 1.4;
+  /* ===== LEFT PANEL: Pricing ===== */
+  .left-panel {
+    position: sticky;
+    top: 16px;
+    align-self: start;
+  }
+  @media (max-width: 900px) {
+    .left-panel { position: static; }
   }
 
-  .market-source {
-    text-align: right;
-    font-size: 11px;
-    color: var(--text-muted);
-    margin-top: -24px;
-    margin-bottom: 36px;
-    padding-right: 4px;
+  .pricing-card {
+    background: #161b22;
+    border: 1px solid #21262d;
+    border-radius: 14px;
+    padding: 18px;
+    margin-bottom: 16px;
   }
-
-  .market-source a {
-    color: var(--text-muted);
-    text-decoration: none;
-    border-bottom: 1px dotted var(--text-muted);
-    transition: color 0.2s;
+  .pricing-card .card-label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
   }
-
-  .market-source a:hover {
-    color: var(--accent-blue);
-    border-bottom-color: var(--accent-blue);
-  }
-
-  /* ── Section Titles ── */
-  .section-title {
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 2px;
+  .pricing-card .asset-name {
+    font-size: 0.78rem;
+    color: #8b949e;
     text-transform: uppercase;
-    color: var(--text-secondary);
-    margin-bottom: 20px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid var(--border);
+    letter-spacing: 0.5px;
+    font-weight: 600;
   }
-
-  .section-title span {
-    color: var(--accent-blue);
-  }
-
-  /* ── Headline Focus ── */
-  .headline {
-    background: linear-gradient(135deg, #1a2332 0%, #161b22 100%);
-    border: 1px solid var(--accent-blue);
-    border-left: 4px solid var(--accent-blue);
-    border-radius: 12px;
-    padding: 24px;
-    margin-bottom: 24px;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .headline::before {
-    content: "🔥 TOP";
-    position: absolute;
-    top: 12px;
-    right: 16px;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    color: var(--accent-orange);
-    background: rgba(210, 153, 34, 0.15);
-    padding: 2px 10px;
+  .pricing-card .change-badge {
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 2px 8px;
     border-radius: 10px;
   }
-
-  .headline .hl-tag {
-    display: inline-block;
-    font-size: 10px;
-    font-weight: 600;
-    padding: 2px 10px;
-    border-radius: 6px;
-    margin-bottom: 10px;
-  }
-
-  .headline h2 {
-    font-size: 18px;
+  .badge-up { background: rgba(248, 81, 73, 0.12); color: #f85149; }
+  .badge-down { background: rgba(63, 185, 80, 0.12); color: #3fb950; }
+  .pricing-card .price-value {
+    font-size: 1.4rem;
     font-weight: 700;
-    line-height: 1.5;
+    font-family: 'SF Mono', 'Fira Code', monospace;
     margin-bottom: 12px;
-    color: var(--text-primary);
   }
-
-  .headline h2 a {
-    color: var(--text-primary);
-    text-decoration: none;
-    transition: color 0.2s;
+  .sparkline-container {
+    position: relative;
+    width: 100%;
+    height: 60px;
   }
-
-  .headline h2 a:hover {
-    color: var(--accent-blue);
+  .sparkline-container svg {
+    width: 100%;
+    height: 100%;
   }
-
-  .headline h2 a::after {
-    content: " ↗";
-    font-size: 13px;
-    color: var(--text-muted);
-    font-weight: 400;
-    transition: color 0.2s;
-  }
-
-  .headline h2 a:hover::after {
-    color: var(--accent-blue);
-  }
-
-  .headline .hl-body {
-    font-size: 14px;
-    color: var(--text-secondary);
-    line-height: 1.8;
-    margin-bottom: 14px;
-  }
-
-  .headline .hl-insight {
-    background: rgba(88, 166, 255, 0.08);
-    border-radius: 8px;
-    padding: 12px 16px;
-    font-size: 13px;
-    color: var(--accent-blue);
-    line-height: 1.7;
-    border-left: 3px solid var(--accent-blue);
-  }
-
-  .headline .source {
-    font-size: 11px;
-    color: var(--text-muted);
-    margin-bottom: 10px;
-  }
-
-  /* ── News Cards ── */
-  .news-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 22px 24px;
-    margin-bottom: 16px;
-    transition: all 0.2s ease;
-  }
-
-  .news-card:hover {
-    background: var(--bg-card-hover);
-    border-color: #444c56;
-    transform: translateY(-1px);
-  }
-
-  .news-card-header {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    margin-bottom: 12px;
-    gap: 12px;
-  }
-
-  .news-card h3 {
-    font-size: 15px;
-    font-weight: 600;
-    line-height: 1.5;
-    color: var(--text-primary);
-    flex: 1;
-  }
-
-  .news-card h3 a {
-    color: var(--text-primary);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-
-  .news-card h3 a:hover {
-    color: var(--accent-blue);
-  }
-
-  .news-card h3 a::after {
-    content: " ↗";
-    font-size: 11px;
-    color: var(--text-muted);
-    font-weight: 400;
-    transition: color 0.2s;
-  }
-
-  .news-card h3 a:hover::after {
-    color: var(--accent-blue);
-  }
-
-  .news-card .tag {
-    display: inline-block;
-    font-size: 10px;
-    font-weight: 600;
-    padding: 2px 10px;
+  .sparkline-tooltip {
+    position: absolute;
+    background: #1c2128;
+    border: 1px solid #30363d;
     border-radius: 6px;
+    padding: 4px 8px;
+    font-size: 0.7rem;
+    color: #e6edf3;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.15s;
     white-space: nowrap;
-    flex-shrink: 0;
+    z-index: 10;
+    font-family: 'SF Mono', monospace;
+  }
+
+  /* Fear & Greed Gauge */
+  .gauge-card {
+    background: #161b22;
+    border: 1px solid #21262d;
+    border-radius: 14px;
+    padding: 20px 18px;
+    text-align: center;
+  }
+  .gauge-card .gauge-title {
+    font-size: 0.78rem;
+    color: #8b949e;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+  .gauge-svg-wrap {
+    width: 100%;
+    max-width: 220px;
+    margin: 0 auto 8px;
+  }
+  .gauge-value {
+    font-size: 1.6rem;
+    font-weight: 700;
+    font-family: 'SF Mono', monospace;
+  }
+  .gauge-label {
+    font-size: 0.8rem;
+    color: #8b949e;
     margin-top: 2px;
   }
 
-  .tag-regulation { background: var(--tag-regulation); color: var(--tag-regulation-text); }
-  .tag-institution { background: var(--tag-institution); color: var(--tag-institution-text); }
-  .tag-defi { background: var(--tag-defi); color: var(--tag-defi-text); }
-  .tag-security { background: var(--tag-security); color: var(--tag-security-text); }
-  .tag-market { background: var(--tag-market); color: var(--tag-market-text); }
-  .tag-ai { background: var(--tag-ai); color: var(--tag-ai-text); }
-  .tag-rwa { background: var(--tag-rwa); color: var(--tag-rwa-text); }
-
-  .news-card .source {
-    font-size: 11px;
-    color: var(--text-muted);
-    margin-bottom: 10px;
-  }
-
-  .news-card .body {
-    font-size: 13.5px;
-    color: var(--text-secondary);
-    line-height: 1.8;
-    margin-bottom: 14px;
-  }
-
-  .news-card .body strong {
-    color: var(--text-primary);
-  }
-
-  .news-card .body ul {
-    margin: 8px 0;
-    padding-left: 18px;
-  }
-
-  .news-card .body li {
-    margin-bottom: 4px;
-  }
-
-  .news-card .insight {
-    background: rgba(88, 166, 255, 0.06);
-    border-radius: 8px;
-    padding: 10px 14px;
-    font-size: 12.5px;
-    color: var(--accent-blue);
-    line-height: 1.7;
-    border-left: 3px solid rgba(88, 166, 255, 0.3);
-  }
-
-  .news-card .insight .label {
-    font-weight: 700;
-    font-size: 10px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    display: block;
-    margin-bottom: 4px;
-    color: rgba(88, 166, 255, 0.6);
-  }
-
-  /* ── Calendar ── */
-  .calendar {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 20px 24px;
-    margin-bottom: 32px;
-  }
-
-  .cal-row {
-    display: flex;
-    align-items: center;
-    padding: 10px 0;
-    border-bottom: 1px solid rgba(48, 54, 61, 0.5);
-    gap: 16px;
-  }
-
-  .cal-row:last-child { border-bottom: none; }
-
-  .cal-date {
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--accent-orange);
-    min-width: 90px;
-    flex-shrink: 0;
-  }
-
-  .cal-date.today {
-    color: var(--accent-red);
-  }
-
-  .cal-event {
-    font-size: 13px;
-    color: var(--text-secondary);
-  }
-
-  .cal-badge {
-    display: inline-block;
-    font-size: 9px;
-    font-weight: 700;
-    padding: 1px 8px;
-    border-radius: 8px;
-    margin-left: 8px;
-    vertical-align: middle;
-  }
-
-  .cal-badge.hot {
-    background: rgba(248, 81, 73, 0.15);
-    color: var(--accent-red);
-  }
-
-  /* ── Trend Narrative ── */
-  .trend-box {
-    background: linear-gradient(135deg, #131a24 0%, #161b22 100%);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 24px;
-    margin-bottom: 32px;
-  }
-
-  .trend-box h3 {
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--accent-purple);
-    margin-bottom: 14px;
-  }
-
-  .trend-box p {
-    font-size: 13.5px;
-    color: var(--text-secondary);
-    line-height: 1.9;
-  }
-
-  .trend-box strong {
-    color: var(--text-primary);
-  }
-
-  /* ── Watch List ── */
-  .watch-item {
-    display: flex;
-    gap: 14px;
-    padding: 16px 0;
-    border-bottom: 1px solid rgba(48, 54, 61, 0.4);
-  }
-
-  .watch-item:last-child { border-bottom: none; }
-
-  .watch-num {
-    font-size: 22px;
-    font-weight: 800;
-    color: rgba(88, 166, 255, 0.2);
-    min-width: 32px;
-    line-height: 1.3;
-  }
-
-  .watch-content h4 {
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--text-primary);
-    margin-bottom: 4px;
-  }
-
-  .watch-content p {
-    font-size: 12.5px;
-    color: var(--text-secondary);
-    line-height: 1.7;
-  }
-
-  /* ── Footer ── */
-  .footer {
+  .data-source {
     text-align: center;
-    padding-top: 32px;
-    border-top: 1px solid var(--border);
+    font-size: 0.68rem;
+    color: #484f58;
     margin-top: 12px;
   }
 
-  .footer p {
-    font-size: 11px;
-    color: var(--text-muted);
+  /* ===== RIGHT PANEL: News ===== */
+  .right-panel { min-width: 0; }
+
+  /* Headline */
+  .headline {
+    background: linear-gradient(135deg, #1c2333 0%, #161b22 100%);
+    border: 1px solid #30363d;
+    border-left: 4px solid #58a6ff;
+    border-radius: 12px;
+    padding: 18px 20px;
+    margin-bottom: 20px;
+  }
+  .headline .tag {
+    display: inline-block;
+    background: rgba(88, 166, 255, 0.15);
+    color: #58a6ff;
+    font-size: 0.68rem;
+    font-weight: 600;
+    padding: 2px 9px;
+    border-radius: 20px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .headline h2 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #f0f6fc;
+    margin-bottom: 8px;
+    line-height: 1.5;
+  }
+  .headline p {
+    color: #8b949e;
+    font-size: 0.82rem;
+    line-height: 1.7;
+  }
+
+  /* News Cards */
+  .news-section { margin-bottom: 22px; }
+  .news-section .section-title {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #8b949e;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+    padding-left: 4px;
+  }
+  .news-card {
+    background: #161b22;
+    border: 1px solid #21262d;
+    border-radius: 12px;
+    padding: 16px 18px;
+    margin-bottom: 10px;
+    transition: border-color 0.2s;
+  }
+  .news-card:hover { border-color: #30363d; }
+  .news-card .card-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  .news-card .category {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 600;
+    padding: 2px 7px;
+    border-radius: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+  }
+  .cat-regulation { background: rgba(210, 153, 34, 0.15); color: #d29922; }
+  .cat-ai { background: rgba(163, 113, 247, 0.15); color: #a371f7; }
+  .cat-tradfi { background: rgba(88, 166, 255, 0.15); color: #58a6ff; }
+  .cat-infra { background: rgba(63, 185, 80, 0.15); color: #3fb950; }
+  .cat-defi { background: rgba(219, 109, 40, 0.15); color: #db6d28; }
+  .cat-market { background: rgba(248, 81, 73, 0.15); color: #f85149; }
+
+  .news-card h3 {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #f0f6fc;
+    margin-bottom: 6px;
+    line-height: 1.5;
+  }
+  .news-card h3 a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
+  }
+  .news-card h3 a:hover { border-bottom-color: #58a6ff; color: #58a6ff; }
+  .news-card .desc {
+    color: #8b949e;
+    font-size: 0.8rem;
+    line-height: 1.7;
+    margin-bottom: 8px;
+  }
+  .news-card .so-what {
+    background: rgba(88, 166, 255, 0.05);
+    border-left: 3px solid #30363d;
+    padding: 6px 10px;
+    border-radius: 0 6px 6px 0;
+    font-size: 0.76rem;
+    color: #8b949e;
+  }
+  .news-card .so-what strong { color: #58a6ff; }
+
+  /* Trend */
+  .trend-box {
+    background: linear-gradient(135deg, #1c1e2e 0%, #161b22 100%);
+    border: 1px solid #30363d;
+    border-radius: 12px;
+    padding: 18px 20px;
+    margin-bottom: 22px;
+  }
+  .trend-box .tag {
+    display: inline-block;
+    background: rgba(163, 113, 247, 0.15);
+    color: #a371f7;
+    font-size: 0.68rem;
+    font-weight: 600;
+    padding: 2px 9px;
+    border-radius: 20px;
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+  }
+  .trend-box h3 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #f0f6fc;
+    margin-bottom: 8px;
+  }
+  .trend-box p {
+    color: #8b949e;
+    font-size: 0.8rem;
     line-height: 1.8;
   }
 
-  /* ── Responsive ── */
-  @media (max-width: 700px) {
-    .market-grid { grid-template-columns: repeat(3, 1fr); }
-  }
-
-  @media (max-width: 480px) {
-    .container { padding: 20px 14px 40px; }
-    .market-grid { grid-template-columns: repeat(2, 1fr); }
-    .header h1 { font-size: 22px; }
-    .headline h2 { font-size: 16px; }
-    .news-card { padding: 16px 18px; }
+  /* Footer */
+  .footer {
+    text-align: center;
+    padding: 20px 0;
+    border-top: 1px solid #21262d;
+    color: #484f58;
+    font-size: 0.72rem;
+    max-width: 1400px;
+    margin: 0 auto;
   }
 </style>
 </head>
 <body>
-<div class="container">
 
-  <!-- ═══ Header ═══ -->
-  <div class="header">
-    <div class="header-label">Daily Briefing</div>
-    <h1>区块链 & 金融科技每日简报</h1>
-    <div class="date">2026年4月17日 · 周五</div>
-  </div>
-
-  <!-- ═══ Market Snapshot ═══ -->
-  <div class="section-title"><span>◆</span> 市场快照</div>
-  <div class="market-grid">
-    <div class="market-card">
-      <div class="symbol">BTC</div>
-      <div class="price">$75,120</div>
-      <div class="change up">+0.57%</div>
-      <div class="note">24H: $73,346 – $75,507</div>
-    </div>
-    <div class="market-card">
-      <div class="symbol">ETH</div>
-      <div class="price">$2,341</div>
-      <div class="change neutral">-0.02%</div>
-      <div class="note">24H: $2,286 – $2,364</div>
-    </div>
-    <div class="market-card">
-      <div class="symbol">SOL</div>
-      <div class="price">$88.43</div>
-      <div class="change up">+3.85%</div>
-      <div class="note">24H: $84.20 – $90.38</div>
-    </div>
-    <div class="market-card">
-      <div class="symbol">加密总市值</div>
-      <div class="price" style="font-size:16px;">$2.55T</div>
-      <div class="change up">+0.82%</div>
-      <div class="note">BTC主导率 58.9%</div>
-    </div>
-    <div class="market-card">
-      <div class="symbol">恐惧&贪婪</div>
-      <div class="price" style="font-size:20px;">55</div>
-      <div class="change neutral">中性 Neutral</div>
-      <div class="note">山寨币指数 37</div>
-    </div>
-  </div>
-  <div class="market-source">
-    数据来源：<a href="https://coinmarketcap.com/" target="_blank" rel="noopener">CoinMarketCap</a> · 实时行情 · 获取时间 2026-04-17 16:35 UTC+8
-  </div>
-
-  <!-- ═══ Headline Focus ═══ -->
-  <div class="section-title"><span>◆</span> 头条聚焦</div>
-
-  <div class="headline">
-    <span class="hl-tag tag-institution">💰 机构</span>
-    <div class="source">Investing News Network / SEC EDGAR · 4月14日</div>
-    <h2><a href="https://investingnews.com/cryptocurrency-market-recap/" target="_blank" rel="noopener">高盛首次向SEC申请比特币ETF —— 机构入场信号再升级</a></h2>
-    <div class="hl-body">
-      高盛于4月14日向SEC提交首只比特币相关ETF申请。该产品设计为<strong>叠加期权策略的收益型ETF</strong>：持有其他发行方的现货BTC ETF，通过备兑看涨期权（covered call）策略在横盘市场中产生收益，代价是封顶上涨空间。这不是简单的价格追踪工具，而是面向机构客户的<strong>结构化收益产品</strong>。
-    </div>
-    <div class="hl-insight">
-      <strong>🔍 So What：</strong>机构客户需求已从"能不能买BTC"进化到"怎么拿BTC生息"。加密资产正式进入<strong>配置资产</strong>阶段。<br>
-      <strong>📌 Next：</strong>关注SEC审批进度，以及BlackRock、Fidelity是否跟进类似收益型产品。
-    </div>
-  </div>
-
-  <div class="headline">
-    <span class="hl-tag tag-regulation">🏛️ 监管</span>
-    <div class="source">Fintech News HK / HKMA · 4月10日</div>
-    <h2><a href="https://fintechnews.hk/38270/blockchain/hong-kong-stablecoin-licence-hsbc-anchorpoint-hkma/" target="_blank" rel="noopener">香港首批稳定币牌照落地：汇丰与渣打/Animoca合资公司获批</a></h2>
-    <div class="hl-body">
-      香港金管局依据《稳定币条例》发放首批两张牌照：<br>
-      <strong>▸ 汇丰银行（FRS02）</strong>：计划2026H2推出港元稳定币，整合至 PayMe 与 HSBC HK App，支持P2P/P2M支付及代币化投资<br>
-      <strong>▸ Anchorpoint Financial（FRS01）</strong>：渣打 + HKT + Animoca Brands 合资，发行 HKDAP（港元平价稳定币），B2B2C模式，聚焦RWA代币化结算
-    </div>
-    <div class="hl-insight">
-      <strong>🔍 So What：</strong>全球稳定币监管竞赛中香港率先亮牌。汇丰直接将稳定币嵌入千万级用户的 PayMe 支付场景——传统银行 vs. crypto-native 两条路线的竞争格局正在重塑。<br>
-      <strong>📌 Next：</strong>关注汇丰稳定币的具体储备安排和合规架构披露，以及其他36家申请者中谁将获得第二批牌照。
-    </div>
-  </div>
-
-  <!-- ═══ More News ═══ -->
-  <div class="section-title"><span>◆</span> 更多值得关注</div>
-
-  <!-- Card 3 -->
-  <div class="news-card">
-    <div class="news-card-header">
-      <h3><a href="https://altsignals.io/post/fdic-stablecoin-regulations-genius-act" target="_blank" rel="noopener">美国FDIC发布稳定币监管新规提案，对齐GENIUS Act</a></h3>
-      <span class="tag tag-regulation">🏛️ 监管</span>
-    </div>
-    <div class="source">AltSignals / Bloomberg Law · 4月8日</div>
-    <div class="body">
-      FDIC发布稳定币监管提案，覆盖<strong>储备金、赎回机制、资本要求、风险管理、托管标准</strong>五大领域。核心设计：机构层面储备金受FDIC保险保护，但个人稳定币持有者<strong>不直接享有</strong>存款保险。开放60天评论期，计划2027年1月全面生效。
-    </div>
-    <div class="insight">
-      <span class="label">So What & Next</span>
-      "机构保、个人不保"本质是鼓励银行参与稳定币的同时给加密原生发行方设置隐性壁垒。关注60天评论期内Circle、Coinbase等的正式回应。
-    </div>
-  </div>
-
-  <!-- Card 4 -->
-  <div class="news-card">
-    <div class="news-card-header">
-      <h3><a href="https://www.fintechweekly.com/news/clarity-act-senate-returns-april-2026-markup-window" target="_blank" rel="noopener">CLARITY Act立法窗口急剧收窄，Tim Scott尚未宣布审议日期</a></h3>
-      <span class="tag tag-regulation">🏛️ 监管</span>
-    </div>
-    <div class="source">FinTech Weekly · 4月13日</div>
-    <div class="body">
-      参议院复会后，银行委员会主席Tim Scott仍未公布审议日程。四大未解决议题：稳定币收益条款（Coinbase反对）、DeFi条款、道德规范条款、社区银行条款。David Sacks离任后白宫缺少加密事务专职协调人。参议员Moreno警告：<strong>5月前不推进可能数年搁置</strong>。
-    </div>
-    <div class="insight">
-      <span class="label">So What & Next</span>
-      SEC行政裁定可以被推翻，法律不能。CLARITY Act是2026年美国加密立法的生死线。Polymarket当前通过概率72%。本周紧盯Tim Scott的日程公告。
-    </div>
-  </div>
-
-  <!-- Card 5 -->
-  <div class="news-card">
-    <div class="news-card-header">
-      <h3><a href="https://www.sohu.com/a/1009966077_120426565" target="_blank" rel="noopener">谷歌量子AI白皮书：50万量子比特可9分钟破解比特币加密</a></h3>
-      <span class="tag tag-security">🛡️ 安全</span>
-    </div>
-    <div class="source">搜狐 / 21世纪经济报道 / 谷歌白皮书 · 3月30日发布，4月持续发酵</div>
-    <div class="body">
-      谷歌量子AI团队白皮书核心结论：50万物理量子比特的容错量子计算机可在<strong>约9分钟</strong>内破解BTC的ECDLP-256加密，约<strong>690万枚BTC</strong>面临直接风险。同时给出了后量子密码学迁移路线图。当前最先进量子计算机约1000+比特，距威胁阈值仍有距离。
-    </div>
-    <div class="insight">
-      <span class="label">So What & Next</span>
-      首次给出具体"破解成本"数据，为加密行业和传统金融设定了后量子密码学迁移倒计时。对链上安全和隐私计算方向有直接启示。关注NIST后量子密码标准的采纳进度。
-    </div>
-  </div>
-
-  <!-- Card 6 -->
-  <div class="news-card">
-    <div class="news-card-header">
-      <h3><a href="https://p2p.org/economy/defi-dispatch-defi-news-april-2026-issue-1/" target="_blank" rel="noopener">Apollo Global（9400亿美元AUM）战略入股DeFi协议Morpho</a></h3>
-      <span class="tag tag-defi">🔗 DeFi</span>
-    </div>
-    <div class="source">P2P.org DeFi Dispatch · 4月9日</div>
-    <div class="body">
-      Apollo Global Management与DeFi借贷协议Morpho达成协议，计划<strong>48个月内收购最多9000万枚MORPHO代币</strong>（约占治理总量9%）。Morpho当前TVL约58亿美元，采用"策划型金库"架构。这是全球顶级另类资管巨头对链上信贷基础设施的<strong>结构性承诺</strong>。
-    </div>
-    <div class="insight">
-      <span class="label">So What & Next</span>
-      TradFi不再只是观望DeFi，而是直接收购治理代币获取协议影响力。关注Morpho TVL和治理提案变化，以及其他资管巨头是否跟进类似布局。
-    </div>
-  </div>
-
-  <!-- Card 7 -->
-  <div class="news-card">
-    <div class="news-card-header">
-      <h3><a href="https://money.mymotherlode.com/clarkebroadcasting.mymotherlode/article/247pressrelease-2026-4-17-predictive-not-reactive-how-ai-tools-are-reshaping-defi-in-2026" target="_blank" rel="noopener">AI预测工具深度嵌入DeFi：从被动反应到主动预防</a></h3>
-      <span class="tag tag-ai">🤖 AI</span>
-    </div>
-    <div class="source">24-7 Press Release · 4月17日</div>
-    <div class="body">
-      2026年AI在DeFi中的角色已从附加功能升级为核心基础设施层：
-      <ul>
-        <li><strong>预测性清算建模</strong> — 市场崩盘前对冲波动性抵押品</li>
-        <li><strong>智能合约异常检测</strong> — 自动识别合约行为中的欺诈性异常</li>
-        <li><strong>情绪热图</strong> — 追踪钱包集群、社交情绪和鲸鱼行为</li>
-      </ul>
-      Robinhood已集成实时AI风险标记，DCG投资方向聚焦预测性基础设施。
-    </div>
-    <div class="insight">
-      <span class="label">So What & Next</span>
-      AI降低DeFi的"无序风险"，是机构资金入场的前提之一。与Project x402（AI Agent + 支付）方向高度吻合。关注Gauntlet、Chaos Labs等AI风控平台的新产品发布。
-    </div>
-  </div>
-
-  <!-- Card 8 -->
-  <div class="news-card">
-    <div class="news-card-header">
-      <h3><a href="https://p2p.org/economy/defi-dispatch-defi-news-april-2026-issue-1/" target="_blank" rel="noopener">代币化美国国债突破128.8亿美元，回购市场基础设施开始上链</a></h3>
-      <span class="tag tag-rwa">🏦 RWA</span>
-    </div>
-    <div class="source">P2P.org DeFi Dispatch · 4月9日</div>
-    <div class="body">
-      代币化美国国债规模达<strong>128.8亿美元</strong>（2024年底仅约50亿，18个月增长超150%）。更广泛代币化生态资产价值达4413.8亿美元。<strong>12.5万亿美元的回购市场</strong>部分基础设施正迁移至以太坊结算。美联储/OCC/FDIC Q1联合确认资本规则"<strong>技术中性</strong>"。
-    </div>
-    <div class="insight">
-      <span class="label">So What & Next</span>
-      RWA代币化从试点走向规模化，"技术中性"扫除银行配置最大合规障碍。回购市场上链意味着区块链正成为TradFi的结算层。关注大型银行的代币化国债产品发行节奏。
-    </div>
-  </div>
-
-  <!-- ═══ Trend Narrative ═══ -->
-  <div class="section-title"><span>◆</span> 趋势连线</div>
-  <div class="trend-box">
-    <h3>🧬 本周叙事主线：机构全面拥抱链上基础设施</h3>
-    <p>
-      把今天的新闻串起来看，一条清晰的主线浮现：<strong>机构资本正在从"观察区块链"转向"嵌入区块链"</strong>。
-      高盛申请收益型BTC ETF（机构要的是结构化收益，不是投机敞口）→ Apollo直接收购DeFi协议治理代币（把链上借贷当运营基础设施）→ 代币化国债突破128亿美元 + 回购市场上链（传统金融结算层迁移）→ 香港发稳定币牌照给汇丰和渣打（银行成为链上法币入口）。
-      <br><br>
-      同时，<strong>两条暗线</strong>在制约这个进程：美国CLARITY Act的立法博弈决定了DeFi的合规边界，而谷歌量子计算白皮书则提醒所有人——链上安全的"保质期"不是无限的。
-      <br><br>
-      <strong>一句话：</strong>2026年的区块链不再是"替代金融"的故事，而是"传统金融的新结算层"。谁掌握了这个结算层的关键位置（稳定币发行权、协议治理权、合规牌照），谁就拿到了下一个十年的门票。
-    </p>
-  </div>
-
-  <!-- ═══ Calendar ═══ -->
-  <div class="section-title"><span>◆</span> 关键日历</div>
-  <div class="calendar">
-    <div class="cal-row">
-      <div class="cal-date today">4月17日（今天）</div>
-      <div class="cal-event">全球市场混合信号，加密市场盘整</div>
-    </div>
-    <div class="cal-row">
-      <div class="cal-date">4月24日</div>
-      <div class="cal-event">BTC/ETH 月度期权到期</div>
-    </div>
-    <div class="cal-row">
-      <div class="cal-date">4月28-29日</div>
-      <div class="cal-event">FOMC 利率决议 <span class="cal-badge hot">鲍威尔最后一次</span></div>
-    </div>
-    <div class="cal-row">
-      <div class="cal-date">4月30日</div>
-      <div class="cal-event">3月核心 PCE 数据发布</div>
-    </div>
-    <div class="cal-row">
-      <div class="cal-date">5月15日</div>
-      <div class="cal-event">Kevin Warsh 接任美联储主席 <span class="cal-badge hot">重大</span></div>
-    </div>
-  </div>
-
-  <!-- ═══ Watch List ═══ -->
-  <div class="section-title"><span>◆</span> Nathan's Watch List</div>
-  <div class="watch-item">
-    <div class="watch-num">01</div>
-    <div class="watch-content">
-      <h4>稳定币监管竞赛</h4>
-      <p>香港首批牌照 vs. 美国GENIUS Act / CLARITY Act，两大市场合规路径正在分化。</p>
-    </div>
-  </div>
-  <div class="watch-item">
-    <div class="watch-num">02</div>
-    <div class="watch-content">
-      <h4>AI + DeFi</h4>
-      <p>预测性AI工具正在成为DeFi协议的标配——与Project x402（AI Agent + 支付）方向高度吻合。</p>
-    </div>
-  </div>
-  <div class="watch-item">
-    <div class="watch-num">03</div>
-    <div class="watch-content">
-      <h4>RWA代币化 + 链上结算</h4>
-      <p>回购市场上链 + 代币化国债规模化 → 区块链成为"金融基础设施层"。</p>
-    </div>
-  </div>
-
-  <!-- ═══ Footer ═══ -->
-  <div class="footer">
-    <p>
-      信息来源：Bloomberg Law · Reuters · Investing News Network · The Block · FinTech Weekly<br>
-      Fintech News HK · P2P.org · MethodAlgo Research · 搜狐 · 21世纪经济报道
-    </p>
-  </div>
-
+<div class="header">
+  <h1>每日金融科技简报</h1>
+  <div class="date">2026年5月8日 星期五</div>
 </div>
+
+<div class="main-layout">
+
+  <!-- ===== LEFT PANEL: Pricing & Sentiment ===== -->
+  <div class="left-panel">
+
+    <!-- BTC -->
+    <div class="pricing-card" id="card-btc">
+      <div class="card-label">
+        <span class="asset-name">BTC · Bitcoin</span>
+        <span class="change-badge badge-down">▼ -1.75%</span>
+      </div>
+      <div class="price-value">$79,679</div>
+      <div class="sparkline-container" id="spark-btc">
+        <div class="sparkline-tooltip" id="tip-btc"></div>
+      </div>
+    </div>
+
+    <!-- ETH -->
+    <div class="pricing-card" id="card-eth">
+      <div class="card-label">
+        <span class="asset-name">ETH · Ethereum</span>
+        <span class="change-badge badge-down">▼ -1.95%</span>
+      </div>
+      <div class="price-value">$2,284</div>
+      <div class="sparkline-container" id="spark-eth">
+        <div class="sparkline-tooltip" id="tip-eth"></div>
+      </div>
+    </div>
+
+    <!-- XAU -->
+    <div class="pricing-card" id="card-xau">
+      <div class="card-label">
+        <span class="asset-name">XAU · 黄金</span>
+        <span class="change-badge badge-up">▲ +0.59%</span>
+      </div>
+      <div class="price-value">$4,712</div>
+      <div class="sparkline-container" id="spark-xau">
+        <div class="sparkline-tooltip" id="tip-xau"></div>
+      </div>
+    </div>
+
+    <!-- Total Market Cap -->
+    <div class="pricing-card" id="card-total">
+      <div class="card-label">
+        <span class="asset-name">加密总市值</span>
+        <span class="change-badge badge-down">▼ -1.8%</span>
+      </div>
+      <div class="price-value">$2.67T</div>
+      <div class="sparkline-container" id="spark-total">
+        <div class="sparkline-tooltip" id="tip-total"></div>
+      </div>
+    </div>
+
+    <!-- Fear & Greed Gauge -->
+    <div class="gauge-card">
+      <div class="gauge-title">Crypto Fear & Greed Index</div>
+      <div class="gauge-svg-wrap">
+        <svg viewBox="0 0 200 120" id="gauge-svg"></svg>
+      </div>
+      <div class="gauge-value" id="gauge-number">34</div>
+      <div class="gauge-label" id="gauge-text">恐惧 Fear</div>
+    </div>
+
+    <div class="data-source">数据来源：CoinMarketCap · Alternative.me | 获取时间：2026-05-08 09:30 UTC+8</div>
+  </div>
+
+  <!-- ===== RIGHT PANEL: News ===== -->
+  <div class="right-panel">
+
+    <!-- Headline -->
+    <div class="headline">
+      <span class="tag">今日头条</span>
+      <h2>美参议院68:30通过《GENIUS法案》—— 美国首个联邦稳定币监管框架正式诞生</h2>
+      <p>参议院以两党压倒性票数通过里程碑式立法，确立1:1储备要求、月度披露义务、消费者优先偿付权。法案已送交众议院审议，与《清晰法案》构成美国加密监管双支柱。Circle/Coinbase连日大涨，银行业协会仍要求强化反存款外逃条款。</p>
+    </div>
+
+    <!-- News Cards -->
+    <div class="news-section">
+      <div class="section-title">▎金融科技 & 监管</div>
+      
+      <div class="news-card">
+        <div class="card-header"><span class="category cat-regulation">监管</span></div>
+        <h3><a href="https://natlawreview.com/article/senate-passes-genius-act-landmark-federal-stablecoin-bill-advances-house" target="_blank">美参议院68:30票通过GENIUS法案，联邦稳定币监管框架确立</a></h3>
+        <div class="desc">法案要求稳定币发行方持有1:1美元或短期国债储备（≤93天到期），月度披露储备明细，年度审计。算法稳定币被明确禁止。破产时持有者享有优先偿付权。18名民主党跨党投票支持。</div>
+        <div class="so-what"><strong>So What：</strong>稳定币从监管灰色地带正式纳入联邦框架，合规发行方（Circle、Paxos）获结构性优势。银行业仍在博弈收益条款——后续众议院与《清晰法案》衔接是关键节点。</div>
+      </div>
+
+      <div class="news-card">
+        <div class="card-header"><span class="category cat-regulation">监管</span></div>
+        <h3><a href="https://crypto.news/cftc-may-lock-in-phantom-style-crypto-wallet-protections/" target="_blank">CFTC拟将非托管钱包开发者保护正式写入规则</a></h3>
+        <div class="desc">CFTC主席Michael Selig在Consensus大会上宣布，将把此前对Phantom发出的无行动函（免注册经纪商）升级为正式规则制定，明确自托管钱包软件开发者无需注册。SEC上月已发类似指导。</div>
+        <div class="so-what"><strong>So What：</strong>从临时性豁免升级为永久性规则，美国DeFi基础设施开发者的合规不确定性大幅降低。利好MetaMask、Phantom等非托管钱包的美国业务。</div>
+      </div>
+
+      <div class="news-card">
+        <div class="card-header"><span class="category cat-regulation">监管</span></div>
+        <h3><a href="https://xueqiu.com/3338215700/387199612" target="_blank">银行业协会反击：称《清晰法案》稳定币收益妥协条款仍有漏洞</a></h3>
+        <div class="desc">美国银行家协会等五大行业组织联合声明，认为Tillis-Alsobrooks稳定币收益折中文本"未能充分阻止稳定币模仿银行存款利息"，将在数日内提交修改建议。此前该妥协令Coinbase涨6%、Circle涨20%。</div>
+        <div class="so-what"><strong>So What：</strong>立法进程未结束。银行业游说力量仍在试图收紧条款，如果最终文本进一步限制收益分配，DeFi收益产品将面临合规压力。</div>
+      </div>
+    </div>
+
+    <div class="news-section">
+      <div class="section-title">▎AI + 金融</div>
+      
+      <div class="news-card">
+        <div class="card-header"><span class="category cat-ai">AI</span></div>
+        <h3><a href="https://fortune.com/2026/05/05/anthropic-wall-street-financial-services-agents-jamie-dimon/" target="_blank">Anthropic发布10款金融AI Agent + Claude Opus 4.7，直取华尔街</a></h3>
+        <div class="desc">Anthropic发布面向银行/资管/保险的10款预构建AI Agent，覆盖客户推介、财报审阅、合规升级等场景，自主执行并生成完整审计轨迹。同步发布Claude Opus 4.7——针对金融任务优化的最强模型。紧随$15亿Blackstone/Goldman合资之后。FactSet一度跌8%、Morningstar跌逾3%。</div>
+        <div class="so-what"><strong>So What：</strong>AI从"辅助对话"转向"自主执行"金融工作流。数据/研究类SaaS（FactSet、Morningstar）面临被Agent替代的直接威胁。OpenAI×PwC vs Anthropic×Goldman——金融AI军备竞赛正式双线展开。</div>
+      </div>
+    </div>
+
+    <div class="news-section">
+      <div class="section-title">▎传统金融 × 数字资产</div>
+      
+      <div class="news-card">
+        <div class="card-header"><span class="category cat-tradfi">TradFi</span></div>
+        <h3><a href="https://financefeeds.com/morgan-stanley-launches-spot-crypto-trading-on-etrade-platform/" target="_blank">摩根士丹利E*Trade正式上线现货加密交易</a></h3>
+        <div class="desc">Morgan Stanley于5月6日在E*Trade平台正式开放加密现货交易试点，首批支持BTC、ETH、SOL，收取50bps交易费。基础设施由Zerohash提供。此前其BTC ETF首周即吸引$1亿资产。</div>
+        <div class="so-what"><strong>So What：</strong>传统券商零售端入场的标志性事件。50bps费率大幅低于Coinbase Pro，直接冲击加密原生交易所的零售份额。E*Trade用户基数约500万——即便5%转化也是巨大增量。</div>
+      </div>
+
+      <div class="news-card">
+        <div class="card-header"><span class="category cat-tradfi">TradFi</span></div>
+        <h3><a href="https://www.bny.com/content/bnymellon/global/en/about-us/newsroom/press-release/bny-together-with-finstreet-limited-and-adi-foundation.html" target="_blank">BNY纽约银行联手Finstreet×ADI，在阿布扎比推出机构级BTC/ETH托管</a></h3>
+        <div class="desc">管理$59万亿资产的全球最大托管银行BNY，与Finstreet及ADI Foundation合作，在ADGM（阿布扎比全球市场）部署受监管数字资产托管服务，初期聚焦BTC和ETH，后续扩展至稳定币和代币化资产。</div>
+        <div class="so-what"><strong>So What：</strong>全球最大托管行进入中东数字资产市场——信号意义巨大。阿联酋正加速构建"全球加密金融枢纽"叙事，与新加坡/香港形成三足鼎立竞争格局。</div>
+      </div>
+
+      <div class="news-card">
+        <div class="card-header"><span class="category cat-infra">基础设施</span></div>
+        <h3><a href="https://news.bitcoin.com/zh/broadridge-yu-galaxy-shuaixian-wei-meiguo-shangshigongsi-tuichu-qukuailian-daili-toupiao-fuwu/" target="_blank">Broadridge×Galaxy：美国上市公司首次链上代理投票实战</a></h3>
+        <div class="desc">Broadridge将ProxyVote平台扩展至代币化证券，Galaxy Digital将在5月股东大会上成为首家使用链上代理投票的美国上市公司。平台整合传统股东+代币化持仓为"单一视图"。Broadridge每月已处理$8万亿代币化资产。</div>
+        <div class="so-what"><strong>So What：</strong>治理层是代币化股权大规模采用的最后一块拼图。Broadridge作为全球最大代理投票基础设施商介入，标志着链上公司治理从概念走向机构级生产环境。</div>
+      </div>
+    </div>
+
+    <div class="news-section">
+      <div class="section-title">▎链上生态 & 基础设施</div>
+      
+      <div class="news-card">
+        <div class="card-header"><span class="category cat-infra">基础设施</span></div>
+        <h3><a href="https://coinmarketcap.com/academy/article/jito-solana-company-target-institutional-apac-staking" target="_blank">Jito×Solana Company亚太机构Staking基础设施落地</a></h3>
+        <div class="desc">Jito Foundation与Solana Company（NASDAQ: HSDT）合作，在香港、新加坡、日本、韩国部署运行Jito BAM的Solana验证节点，并面向资管/财富管理机构提供JitoSOL质押收益产品。</div>
+        <div class="so-what"><strong>So What：</strong>亚太是Solana机构化的薄弱环节——此次直接在四大金融中心部署验证节点+定制机构产品，填补了从DeFi收益到传统基金投资的最后一公里。</div>
+      </div>
+
+      <div class="news-card">
+        <div class="card-header"><span class="category cat-defi">DeFi</span></div>
+        <h3><a href="https://www.crowdfundinsider.com/?p=221836" target="_blank">Consensus Miami 2026闭幕：代币化、稳定币、AI三大主题定义行业方向</a></h3>
+        <div class="desc">为期三天的Consensus 2026迈阿密大会闭幕，约2万人参加。核心议题：① RWA代币化进入生产期；② 稳定币立法加速催化支付+金融创新；③ AI Agent嵌入金融工作流成为新基础设施。Jamie Dimon首次与Dario Amodei同台。</div>
+        <div class="so-what"><strong>So What：</strong>Consensus从"加密圈自嗨"变成"华尔街发布会"——这本身就是行业成熟度的最佳注脚。代币化、AI Agent、合规稳定币三条叙事线将主导2026下半年资本配置方向。</div>
+      </div>
+    </div>
+
+    <div class="news-section">
+      <div class="section-title">▎市场动态</div>
+      
+      <div class="news-card">
+        <div class="card-header"><span class="category cat-market">市场</span></div>
+        <h3><a href="https://new.qq.com/rain/a/20260508A01V6C00" target="_blank">全球风险资产集体回调：BTC跌破$80K，10万人爆仓$3.41亿</a></h3>
+        <div class="desc">欧美股市全线下跌（道指-0.63%、英国富时-1.55%），能源/银行/芯片板块领跌，ARM-10%。加密市场同步回调，BTC跌至$79,679，ETH失守$2,300。24小时内超10万人被爆仓，多单占比74%。WTI原油盘中一度跌逾5%后V形反弹收涨2%。</div>
+        <div class="so-what"><strong>So What：</strong>宏观层面通胀担忧+美伊局势仍在发酵，叠加BTC连续上涨后的获利回吐。但结构性资金流（ETF+机构配置）未见显著流出，回调更像短期去杠杆而非趋势反转。</div>
+      </div>
+    </div>
+
+    <!-- Trend -->
+    <div class="trend-box">
+      <span class="tag">趋势连线 TREND NARRATIVE</span>
+      <h3>从"讨论加密"到"建设加密"——Consensus 2026 标志着行业叙事代际跃迁</h3>
+      <p>本周Consensus大会不再是关于"加密是否有未来"的讨论，而是"基础设施如何落地"的执行路线图。三条线索同频共振：<strong>① 监管落地</strong>（GENIUS法案通过+CFTC正式规则）为合规资金扫清障碍；<strong>② TradFi全面接入</strong>（Morgan Stanley零售、BNY托管、Broadridge治理）在三个维度完成"最后一公里"；<strong>③ AI Agent嵌入</strong>（Anthropic 10款金融Agent）让华尔街看到加密×AI的运营级价值。当监管确定性+基础设施覆盖+AI自动化形成闭环，数字资产从"另类投资"升级为"金融操作系统"的拐点已到。</p>
+    </div>
+
+  </div>
+</div>
+
+<div class="footer">
+  <p>每日金融科技简报 · 信息仅供参考，不构成投资建议</p>
+  <p style="margin-top:4px;">数据源：CoinMarketCap · Alternative.me · Bloomberg · The Block · Cointelegraph · Reuters · PA News</p>
+</div>
+
+<script>
+// ===== 7-Day Price Data (固定数据源) =====
+const priceData = {
+  btc: {
+    dates: ['5/2','5/3','5/4','5/5','5/6','5/7','5/8'],
+    values: [80150, 79820, 80393, 80105, 81524, 81103, 79679],
+    format: v => '$' + v.toLocaleString()
+  },
+  eth: {
+    dates: ['5/2','5/3','5/4','5/5','5/6','5/7','5/8'],
+    values: [2410, 2385, 2395, 2370, 2352, 2358, 2284],
+    format: v => '$' + v.toLocaleString()
+  },
+  xau: {
+    dates: ['5/2','5/3','5/4','5/5','5/6','5/7','5/8'],
+    values: [4588, 4610, 4595, 4605, 4621, 4704, 4712],
+    format: v => '$' + v.toLocaleString()
+  },
+  total: {
+    dates: ['5/2','5/3','5/4','5/5','5/6','5/7','5/8'],
+    values: [2.72, 2.69, 2.71, 2.70, 2.76, 2.80, 2.67],
+    format: v => '$' + v.toFixed(2) + 'T'
+  }
+};
+
+function createSparkline(containerId, tooltipId, data, colorUp, colorDown) {
+  const container = document.getElementById(containerId);
+  const tooltip = document.getElementById(tooltipId);
+  const values = data.values;
+  const dates = data.dates;
+  
+  const w = container.offsetWidth || 300;
+  const h = 60;
+  const padding = { top: 8, bottom: 8, left: 4, right: 4 };
+  const plotW = w - padding.left - padding.right;
+  const plotH = h - padding.top - padding.bottom;
+  
+  const min = Math.min(...values);
+  const max = Math.max(...values);
+  const range = max - min || 1;
+  
+  const points = values.map((v, i) => ({
+    x: padding.left + (i / (values.length - 1)) * plotW,
+    y: padding.top + (1 - (v - min) / range) * plotH,
+    value: v,
+    date: dates[i]
+  }));
+  
+  // Determine line color based on trend
+  const isUp = values[values.length - 1] >= values[0];
+  const lineColor = isUp ? '#f85149' : '#3fb950';
+  const gradientId = 'grad-' + containerId;
+  
+  // Build path
+  const pathD = points.map((p, i) => (i === 0 ? 'M' : 'L') + p.x.toFixed(1) + ',' + p.y.toFixed(1)).join(' ');
+  // Area path
+  const areaD = pathD + ' L' + points[points.length-1].x.toFixed(1) + ',' + h + ' L' + points[0].x.toFixed(1) + ',' + h + ' Z';
+  
+  const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  svg.setAttribute('viewBox', '0 0 ' + w + ' ' + h);
+  svg.setAttribute('preserveAspectRatio', 'none');
+  svg.style.width = '100%';
+  svg.style.height = '100%';
+  
+  svg.innerHTML = `
+    <defs>
+      <linearGradient id="${gradientId}" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="${lineColor}" stop-opacity="0.2"/>
+        <stop offset="100%" stop-color="${lineColor}" stop-opacity="0"/>
+      </linearGradient>
+    </defs>
+    <path d="${areaD}" fill="url(#${gradientId})" />
+    <path d="${pathD}" fill="none" stroke="${lineColor}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  `;
+  
+  // Add dots & hit areas
+  points.forEach((p, i) => {
+    const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+    circle.setAttribute('cx', p.x);
+    circle.setAttribute('cy', p.y);
+    circle.setAttribute('r', '3');
+    circle.setAttribute('fill', '#0d1117');
+    circle.setAttribute('stroke', lineColor);
+    circle.setAttribute('stroke-width', '1.5');
+    circle.style.opacity = '0';
+    circle.style.transition = 'opacity 0.15s';
+    circle.dataset.idx = i;
+    svg.appendChild(circle);
+    
+    // Invisible hit area
+    const hitArea = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+    hitArea.setAttribute('x', p.x - plotW / values.length / 2);
+    hitArea.setAttribute('y', 0);
+    hitArea.setAttribute('width', plotW / values.length);
+    hitArea.setAttribute('height', h);
+    hitArea.setAttribute('fill', 'transparent');
+    hitArea.dataset.idx = i;
+    svg.appendChild(hitArea);
+  });
+  
+  container.insertBefore(svg, tooltip);
+  
+  // Interaction
+  container.addEventListener('mousemove', function(e) {
+    const rect = container.getBoundingClientRect();
+    const mouseX = e.clientX - rect.left;
+    const idx = Math.round(((mouseX - padding.left) / plotW) * (values.length - 1));
+    const clampedIdx = Math.max(0, Math.min(values.length - 1, idx));
+    const p = points[clampedIdx];
+    
+    tooltip.textContent = p.date + '  ' + data.format(p.value);
+    tooltip.style.opacity = '1';
+    tooltip.style.left = Math.min(p.x, w - 90) + 'px';
+    tooltip.style.top = (p.y - 28) + 'px';
+    
+    // Show active dot
+    const circles = svg.querySelectorAll('circle');
+    circles.forEach((c, i) => { c.style.opacity = i === clampedIdx ? '1' : '0'; });
+  });
+  
+  container.addEventListener('mouseleave', function() {
+    tooltip.style.opacity = '0';
+    const circles = svg.querySelectorAll('circle');
+    circles.forEach(c => { c.style.opacity = '0'; });
+  });
+}
+
+// ===== Fear & Greed Gauge =====
+function drawGauge(value) {
+  const svg = document.getElementById('gauge-svg');
+  const cx = 100, cy = 95, r = 75;
+  
+  // Background arc segments (Extreme Fear → Fear → Neutral → Greed → Extreme Greed)
+  const segments = [
+    { start: 180, end: 216, color: '#3fb950' },  // Extreme Fear (0-20) — green in Chinese convention
+    { start: 216, end: 252, color: '#56d364' },  // Fear (20-40)
+    { start: 252, end: 288, color: '#d29922' },  // Neutral (40-60)
+    { start: 288, end: 324, color: '#f0883e' },  // Greed (60-80)
+    { start: 324, end: 360, color: '#f85149' },  // Extreme Greed (80-100) — red
+  ];
+  
+  let arcs = '';
+  segments.forEach(seg => {
+    const startRad = (seg.start) * Math.PI / 180;
+    const endRad = (seg.end) * Math.PI / 180;
+    const x1 = cx + r * Math.cos(startRad);
+    const y1 = cy + r * Math.sin(startRad);
+    const x2 = cx + r * Math.cos(endRad);
+    const y2 = cy + r * Math.sin(endRad);
+    arcs += `<path d="M ${x1} ${y1} A ${r} ${r} 0 0 1 ${x2} ${y2}" 
+             fill="none" stroke="${seg.color}" stroke-width="10" stroke-linecap="round" opacity="0.3"/>`;
+  });
+  
+  // Needle
+  const angle = 180 + (value / 100) * 180;
+  const needleRad = angle * Math.PI / 180;
+  const needleLen = r - 15;
+  const nx = cx + needleLen * Math.cos(needleRad);
+  const ny = cy + needleLen * Math.sin(needleRad);
+  
+  // Determine needle color
+  let needleColor = '#d29922';
+  if (value <= 20) needleColor = '#3fb950';
+  else if (value <= 40) needleColor = '#56d364';
+  else if (value <= 60) needleColor = '#d29922';
+  else if (value <= 80) needleColor = '#f0883e';
+  else needleColor = '#f85149';
+  
+  svg.innerHTML = `
+    ${arcs}
+    <circle cx="${cx}" cy="${cy}" r="4" fill="#30363d"/>
+    <line x1="${cx}" y1="${cy}" x2="${nx}" y2="${ny}" stroke="${needleColor}" stroke-width="2.5" stroke-linecap="round"/>
+    <circle cx="${cx}" cy="${cy}" r="3" fill="${needleColor}"/>
+  `;
+}
+
+// ===== Initialize =====
+window.addEventListener('DOMContentLoaded', function() {
+  createSparkline('spark-btc', 'tip-btc', priceData.btc);
+  createSparkline('spark-eth', 'tip-eth', priceData.eth);
+  createSparkline('spark-xau', 'tip-xau', priceData.xau);
+  createSparkline('spark-total', 'tip-total', priceData.total);
+  drawGauge(34); // Fear & Greed = 34 (Fear)
+});
+
+// Handle resize
+window.addEventListener('resize', function() {
+  ['spark-btc','spark-eth','spark-xau','spark-total'].forEach(id => {
+    const el = document.getElementById(id);
+    const svgEl = el.querySelector('svg');
+    if (svgEl) svgEl.remove();
+  });
+  createSparkline('spark-btc', 'tip-btc', priceData.btc);
+  createSparkline('spark-eth', 'tip-eth', priceData.eth);
+  createSparkline('spark-xau', 'tip-xau', priceData.xau);
+  createSparkline('spark-total', 'tip-total', priceData.total);
+});
+</script>
+
 </body>
 </html>
